@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: #141414;
+}
+.device {
+background: rgb(15,15,15);
+background: linear-gradient(90deg, rgba(15,15,15,1) 58%, rgba(229,0,0,0.04805672268907568) 98%, rgba(103,0,0,0.0760679271708683) 100%);
+}
+.container {
+  margin: 0 auto;
+  max-width: 1597px;
+}
+.carousel img {
+  width: 100%;
+  object-fit: cover;
+}
+.carousel {
+  position: relative;
+}
+.linear2 {
+    width: 100%;
+    height: 860px;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.linear {
+    width: 100%;
+    height: 860px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.linear3 {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));  
+}
+.active {
+  background-color: #1A1A1A;
+}
+.footer_top {
+  background-image: url("/footer-bg.png");
+  background-size: cover;
+  background-position: right;
+}
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+:root {
+	--d: 2500ms;
+	--angle: 90deg;
+	--gradX: 100%;
+	--gradY: 50%;
+	--c1: rgba(189, 4, 4);
+	--c2: rgba(20, 20, 20);
+}
+.home-questions {
+	font-size: 3vw;
+	border: 1px solid;
+	padding: 34px;
+	border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+	animation: borderRotate var(--d) linear infinite forwards;
+}
+.home-questions:nth-child(2) {
+	border-image: radial-gradient(ellipse at var(--gradX) var(--gradY), var(--c1), var(--c1) 10%, var(--c2) 40%) 30;
+	animation: borderRadial var(--d) linear infinite forwards;
+}
+@keyframes borderRotate {
+	100% {
+		--angle: 420deg;
+	}
+}
+@keyframes borderRadial {
+	20% {
+		--gradX: 100%;
+		--gradY: 50%;
+	}
+	40% {
+		--gradX: 100%;
+		--gradY: 100%;
+	}
+	60% {
+		--gradX: 50%;
+		--gradY: 100%;
+	}
+	80% {
+		--gradX: 0%;
+		--gradY: 50%;
+	}
+	100% {
+		--gradX: 50%;
+		--gradY: 0%;
+	}
+}
+@media (min-width: 1024px) {
+  .carousel, .movie-bg, .linear, .linear2, .linear3 {
+    height: 860px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel, .movie-bg, .linear, .linear2  {
+    height: 699px;
+  }
+}
+@media (max-width: 767px) {
+  .carousel, .movie-bg, .linear, .linear2  {
+    height: 500px;
+  }
+}
+.movie, .show, .show img, .movie img {
+  transition: 0.2s;
+}
+.movie:hover, .show:hover {
+  border-color: #E60000; 
+  background-color: #262626;
+}
+.show:hover {
+  border-color: yellowgreen;
+}
+.movie img:hover, .show img:hover {
+  transform: scale(1.05); 
+}
+footer a:hover {
+  color: white;
+}
